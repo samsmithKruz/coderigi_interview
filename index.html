@@ -21,6 +21,28 @@
       <a href="#">Login</a>
       <a href="#" class="btn">Sign Up</a>
     </div>
+    <div class="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="mobile-nav">
+      <nav>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Resources</a>
+        <div class="cta">
+          <a href="#">Login</a>
+          <a href="#" class="btn">Sign Up</a>
+        </div>
+      </nav>
+    </div>
+    <script>
+      let mobileMenu = document.querySelector(".mobile-menu");
+      mobileMenu.onclick = e =>{
+        document.querySelector(".mobile-nav").classList.toggle("active");
+      }
+    </script>
   </header>
   <main>
     <section id="hero">
@@ -36,13 +58,13 @@
     <section id="form">
       <form action="#">
         <div class="w-full">
-          <input type="text" placeholder="Shorten a link here...">
-          <span class="error hide">Please add a link</span>
+          <input type="text" name="link" placeholder="Shorten a link here...">
+          <span class="error">Please add a link</span>
         </div>
         <input type="submit" value="Shorten It!">
       </form>
       <div class="links">
-        <div class="link">
+        <!-- <div class="link">
           <h4>https://www.frontendmentor.io</h4>
           <div>
             <a href="#">https:rel.ink/k4lKyk</a>
@@ -55,7 +77,7 @@
             <a href="#">https:rel.ink/k4lKyk</a>
             <a href="#" class="btn copied">Copied!</a>
           </div>
-        </div>
+        </div> -->
       </div>
     </section>
     <section id="statistics">
@@ -159,5 +181,7 @@
       </div>
     </div>
   </footer>
+
+  <script src="./script.js"></script>
 </body>
 </html>

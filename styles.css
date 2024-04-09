@@ -16,6 +16,15 @@
 .hide{
     display: none !important;
 }
+.mobile-menu{
+    display: none;
+}
+.mobile-nav{
+    display: none;
+}
+.mobile-nav.active{
+    display: block;
+}
 body{
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
@@ -29,6 +38,7 @@ header{
     justify-content: space-between;
     max-width: 1240px;
     margin: 1rem auto;
+    position: relative;
 }
 header nav{
     flex: 1 1 auto;
@@ -64,6 +74,8 @@ section{
     grid-template-columns: 1fr 1.2fr;
     gap: 4rem;
     align-items: center;
+    position: relative;
+    overflow: hidden;
 }
 #hero > div{
     display: flex;
@@ -80,6 +92,8 @@ section{
 }
 #hero img{
     width: 100%;
+    position: relative;
+    right: -15%;
 }
 #hero a.btn{
     display: inline-flex;
@@ -114,14 +128,17 @@ section#form{
     border-radius: 6px;
     width: 100%;
 }
-#form form input[type='text']:focus{
+#form form input[type='text'].error{
     outline: var(--red) solid 4px;
+}
+#form form input[type='text']:focus{
+    outline: none;
 }
 #form form input[type='submit']{
     font-size: 1.2rem;
     border-radius: 6px;
     padding: 1.1rem 1.9rem;
-    font-weight: 500;
+    font-weight: 700;
     background-color: var(--primary);
     color: #fafafa;
     border: 0;
@@ -134,9 +151,12 @@ form .w-full{
     flex: 1 1 auto;
 }
 form span.error{
-    display: block;
+    display: none;
     padding-top: .5rem;
     color: var(--red);
+}
+form span.error.show{
+    display: block;
 }
 .links{
     display: flex;
@@ -301,4 +321,136 @@ footer .socials{
 }
 .socials a:hover svg path{
     fill: var(--primary);
+}
+@media screen and (max-width: 1024px) {
+    #statistics #cards {
+        gap: 1rem;
+    }
+    #hero {
+        gap: 2rem;
+    }
+}
+@media screen and (max-width: 850px) {
+    #hero h1 {
+        font-size: 3rem;
+    }
+    footer .wrapper {
+        grid-template-columns: 1.3fr 1fr 1fr 1fr 1.3fr;
+    }
+}
+@media screen and (max-width: 878px) {
+    
+    #hero {
+        grid-template-columns: 1.3fr 1fr;
+    }
+    #form form {
+        padding: 2rem;
+    }
+}
+@media screen and (max-width: 690px) {
+    footer .wrapper {
+        grid-template-columns: 1fr;
+        align-items: center;
+        justify-items: center;
+        text-align: center;
+        row-gap: 2rem;
+    }
+    #statistics #cards {
+        flex-direction: column;
+    }
+    #statistics #cards::before{
+        height: 80%;
+        width: 10px;
+        left: 50%;
+    }
+    #statistics #cards .card{
+        max-width: 400px;
+    }
+    #form form {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    #form form > *{
+        width: 100%;
+    }
+    #hero a.btn {
+        align-self: center;
+    }
+    #hero {
+        display: flex;
+        flex-direction: column-reverse;
+        margin: 2rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+    #hero img{
+        right: 0;
+    }
+    .mobile-menu{
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+        margin-right: .5rem;
+        padding: 1rem;
+        cursor: pointer;
+    }
+    .mobile-menu span{
+        height: 4px;
+        display: block;
+        width: 30px;
+        content: ' s';
+        background-color: var(--base);
+    }
+    .mobile-nav{
+        position: absolute;
+        width: 100%;
+        top: 50px;
+        left: 0;
+        padding: 1.5rem;
+        line-height: 2;
+        z-index: 500;
+    }
+
+    .mobile-nav nav{
+        background-color: var(--secondary);
+        border-radius: 6px;
+        display: flex;
+        padding-top: 1rem;
+        flex-direction: column;
+    }
+    .mobile-nav nav a{
+        color: #fafafa;
+        padding: 1rem 1.5rem;
+        text-align: center;
+    }
+    .mobile-nav nav .cta{
+        display: flex;
+        border-top: 0.73px solid #fafafa25;
+        flex-direction: column;
+        margin: 1rem 3rem 2.5rem;
+    }
+    header > nav {
+        display: none;
+    }
+    header > .cta{
+        display: none;
+    }
+    .links .link {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .links .link h4{
+        padding: .5rem;
+        border-bottom: 0.73px solid #d1d0d1d7 ;
+    }
+    .links .link div{
+        flex-direction: column;
+        align-items: stretch;
+        padding: .5rem;
+    }
+    .links .link div .btn{
+        border-radius: 6px;
+        text-align: center;
+    }
 }
